@@ -1,0 +1,11 @@
+(define (filter lst condition)
+	(if (null? lst)
+		'()
+		(if (condition (car lst))
+			(cons (car lst) (filter (cdr lst) condition))
+			(filter (cdr lst) condition)
+		)
+	)	
+)
+
+(filter (list 1 2 3 4 5 6 7 8 9 10) (lambda (x) (even? x)))
